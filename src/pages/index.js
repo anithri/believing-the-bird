@@ -1,9 +1,11 @@
 import * as React from "react"
-import {Layout} from '../components'
-const IndexPage = () => {
+import {Layout, QuotePage} from '../components'
+import {graphql} from 'gatsby'
+import { useSiteMetadata } from '../hooks'
+const IndexPage = ({data}) => {
   return (
     <Layout>
-      <h1>Home Page</h1>
+      <QuotePage page={data.page} skipTitle={true}/>
     </Layout>
   )
 }
@@ -32,4 +34,11 @@ export const query = graphql`
 `
 
 export default IndexPage
-
+export const Head = ({ _location, _params, data, _pageContext }) => {
+  const {title} = useSiteMetadata()
+  return (
+      <>
+        <title>{title} - {data.page.title}</title>
+      </>
+  )
+}

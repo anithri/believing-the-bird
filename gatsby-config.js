@@ -8,17 +8,21 @@ module.exports = {
       {title: 'Third', link: '/third'},
       {title: 'Fourth', link: '/fourth'},
       {title: 'Fifth', link: '/fifth'},
-    ]
+    ],
+    description: "Celebrating the Artwork and Writings of Birdie"
   },
-  plugins: [{
-    resolve: 'gatsby-source-contentful',
-    options: {
-      spaceId: process.env.CONTENTFUL_SPACE_ID,
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      host: process.env.CONTENTFUL_HOST,
-    }
-  }, 'gatsby-plugin-image',
+  plugins: [
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: process.env.CONTENTFUL_HOST,
+      }
+    },
+    'gatsby-transformer-remark',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-image',
     'gatsby-transformer-sharp',
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap', {
