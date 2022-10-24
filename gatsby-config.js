@@ -1,7 +1,14 @@
 module.exports = {
   siteMetadata: {
     title: `Believing The Bird`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://believingthebird.com`,
+    navLinks: [
+      {title: 'First', link: '/first'},
+      {title: 'Second', link: '/second'},
+      {title: 'Third', link: '/third'},
+      {title: 'Fourth', link: '/fourth'},
+      {title: 'Fifth', link: '/fifth'},
+    ]
   },
   plugins: [{
     resolve: 'gatsby-source-contentful',

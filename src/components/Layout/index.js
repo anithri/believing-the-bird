@@ -1,22 +1,38 @@
 import * as React from 'react'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import * as styles from './styles.module.css'
 import '../../styles/site.css'
 import cx from 'classnames'
-export const Layout = ({grid = 'normal', children}) => {
+import {Decoration} from './Decoration'
+import {Header} from './Header'
+import {Nav} from './Nav'
 
+
+export const Layout = ({grid = 'normal', children}) => {
+  const {title, navLinks} = (useStaticQuery(staticQuery)?.site?.siteMetadata || {})
   return (
-      <div className={cx(styles.grid, styles.normal)}>
-        <header className={styles.header}><h1>Title</h1></header>
-        <nav className={styles.nav}>
-          <ul>
-            <li>First</li>
-            <li>Second</li>
-            <li>Third</li>
-          </ul>
-        </nav>
-        <div className={styles.decoration}>Decoration</div>
-        <main className={styles.main}>{children}</main>
+      <div className={cx(styles.grid, styles[grid])}>
+        <Header title={title} className={styles.header}  />
+        <Decoration className={styles.decoration} />
+        <Nav className={styles.nav} navLinks={navLinks}/>
+        <main className={styles.main}>
+          {children}
+        </main>
         <footer className={styles.footer}>Footer</footer>
       </div>
   )
 }
+
+const staticQuery = graphql`
+  query LayoutQuery {
+    site {
+      siteMetadata {
+        title
+        navLinks {
+          title
+          link
+        }
+      }
+    }
+  }
+`

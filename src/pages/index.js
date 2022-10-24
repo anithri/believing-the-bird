@@ -8,5 +8,28 @@ const IndexPage = () => {
   )
 }
 
+export const query = graphql`
+  query GetIndexPage {
+    page: contentfulPage(slug: { eq: "home" }) {
+      id
+      title
+      slug
+      pageQuote {
+        lines
+        caption
+      }
+      body {
+        childMarkdownRemark {
+          html
+        }
+      }
+      images {
+        title
+        gatsbyImageData(layout: CONSTRAINED, width: 768)
+      }
+    }
+  }
+`
+
 export default IndexPage
 

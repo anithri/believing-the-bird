@@ -1,0 +1,15 @@
+.header {
+  & > a {
+    &:visited,
+    &:active,
+    &:hover,
+    &:link {
+      text-decoration: none;
+    }
+
+    & > h1 {
+      text-align: center;
+      color: var(--color-title);
+    }
+  }
+}
