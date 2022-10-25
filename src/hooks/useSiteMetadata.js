@@ -13,6 +13,9 @@ export const useSiteMetadata = () => {
                 title
                 link
               }
+              author
+              designer
+              established
             }
           }
         }

@@ -1,7 +1,7 @@
 import * as React from "react"
-import {Layout, QuotePage} from '../components'
+import {Layout, QuotePage} from 'components'
 import {graphql} from 'gatsby'
-import { useSiteMetadata } from '../hooks'
+import { useSiteMetadata } from 'hooks'
 const IndexPage = ({data}) => {
   return (
     <Layout>
@@ -15,15 +15,9 @@ export const query = graphql`
     page: contentfulPage(slug: { eq: "home" }) {
       id
       title
-      slug
       pageQuote {
         lines
         caption
-      }
-      body {
-        childMarkdownRemark {
-          html
-        }
       }
       images {
         title

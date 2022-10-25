@@ -11,7 +11,7 @@
     to right,
     var(--transparent) 0%,
     var(--transparent) 30%,
-    var(--color-footer-border) 50%,
+    var(--color-footer-text) 50%,
     var(--transparent) 70%,
     var(--transparent) 100%
   );

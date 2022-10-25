@@ -9,7 +9,10 @@ module.exports = {
       {title: 'Fourth', link: '/fourth'},
       {title: 'Fifth', link: '/fifth'},
     ],
-    description: "Celebrating the Artwork and Writings of Birdie"
+    description: "Celebrating the Artwork and Writings of Birdie",
+    author: 'Birdie',
+    designer: 'Designed by Scott M Parrish with open source software',
+    established: 2017
   },
   plugins: [
     {
@@ -24,6 +27,13 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-image',
     'gatsby-transformer-sharp',
+    "gatsby-plugin-root-import",
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'src/styles/typography',
+      },
+    },
     'gatsby-plugin-postcss',
     'gatsby-plugin-sitemap', {
       resolve: 'gatsby-plugin-manifest',

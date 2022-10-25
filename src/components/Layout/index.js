@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import {useSiteMetadata} from '../../hooks'
+import {useSiteMetadata} from 'hooks'
 import * as styles from './styles.module.css'
-import '../../styles/site.css'
+import 'styles/site.css'
 import cx from 'classnames'
 import { Decoration } from './Decoration'
 import { Header } from './Header'
 import { Nav } from './Nav'
-
+import { Footer } from './Footer'
 
 export const Layout = ({grid = 'normal', children}) => {
   const {title, navLinks} = useSiteMetadata()
@@ -20,7 +20,7 @@ export const Layout = ({grid = 'normal', children}) => {
         <main className={styles.main}>
           {children}
         </main>
-        <footer className={styles.footer}>Footer</footer>
+        <Footer className={styles.footer} />
       </div>
   )
 }

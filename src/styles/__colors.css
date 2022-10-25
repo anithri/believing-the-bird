@@ -5,14 +5,16 @@
   --color-link-current-page: var(--silver);
 
   --color-title: #421CFF;
-  --color-link: var(--black, black);
+  --color-link: var(--dark-green);
   --color-body-bg: #80ffffa0;
-  --color-link-bg: var(--white, white);
+  --color-link-bg: var(--white);
+  --color-link-inverse: var(--white);
+  --color-link-inverse-bg: var(--dark-green);
   --color-link-border: #00b050;
   --color-reading: #0746F7;
   --color-reading-bg: var(--white-50);
 
-  --color-footer-border: var(--dark-green);
+  --color-footer-text: var(--dark-green);
   --color-footer-link: #41aaa380;
   --color-post-nav: #137752D0;
   --color-post-nav-bg: var(--near-white);

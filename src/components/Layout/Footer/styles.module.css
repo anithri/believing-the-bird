@@ -1,3 +1,15 @@
 .footer {
+  color: var(--color-footer-text);
+  & > ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: var(--spacing-none);
+    & > li {
+      font-size: var(--font-size-7, .875rem);
 
+      flex: 0 1 auto;
+    }
+  }
 }

@@ -1,5 +1,5 @@
 .decoration {
   height: 100%; /* .h-100 */
-  background: url('../../../images/bird-in-flight-35.png') left/100% 100% no-repeat;
+  background: url('src/images/bird-in-flight-35.png') left/100% 100% no-repeat;
   color: transparent;
 }

@@ -1,3 +1,3 @@
-export * from './Head'
+export * from './Blockquote'
 export * from './Layout'
 export * from './QuotePage'
