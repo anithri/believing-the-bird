@@ -1,5 +1,7 @@
 export * from './AboutPage'
+export * from './ArtworkPage'
 export * from './Blockquote'
+export * from './FeaturedImage'
 export * from './Head'
 export * from './Layout'
 export * from './QuotePage'

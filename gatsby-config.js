@@ -5,7 +5,7 @@ module.exports = {
     navLinks: [
       {title: "Jeanne's Art", link: '/first'},
       {title: 'About Jeanne', link: '/about'},
-      {title: 'Numerology', link: '/third'},
+      // {title: 'Numerology', link: '/third'},
       {title: "Jeanne's Blog", link: '/fourth'},
       {title: "About Joe", link: '/about-joe'},
       {title: "Joe's Art", link: '/fifth'},

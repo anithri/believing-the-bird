@@ -22,25 +22,14 @@ html {
   background: var(--body-texture), var(--body-background), var(--white-20);
   background-size: cover;
 
-  & #___gatsby {
-    background: var(--color-body-bg);
-  }
 }
 
 body {
   overflow-x: auto;
-}
-
-time {
-  font-weight: bold; /* .b */
+  background: var(--color-body-bg);
 }
 
 .floatLeft {
   float: left;
   margin-right: var(--spacing-small);
-}
-
-.pageTitle {
-  text-align: center;
-  padding-bottom: var(--spacing-small);
 }
