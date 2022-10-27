@@ -1,0 +1,7 @@
+.aboutPage {
+
+  & > section {
+    padding-top: var(--spacing-medium);
+
+  }
+}

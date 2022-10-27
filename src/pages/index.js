@@ -1,12 +1,12 @@
-import * as React from "react"
-import {Layout, QuotePage} from 'components'
-import {graphql} from 'gatsby'
-import { useSiteMetadata } from 'hooks'
+import * as React from 'react'
+import { Layout, QuotePage } from 'components'
+import { graphql } from 'gatsby'
+
 const IndexPage = ({data}) => {
   return (
-    <Layout>
-      <QuotePage page={data.page} skipTitle={true}/>
-    </Layout>
+      <Layout>
+        <QuotePage page={data.page} skipTitle={true} />
+      </Layout>
   )
 }
 
@@ -28,11 +28,4 @@ export const query = graphql`
 `
 
 export default IndexPage
-export const Head = ({ _location, _params, data, _pageContext }) => {
-  const {title} = useSiteMetadata()
-  return (
-      <>
-        <title>{title} - {data.page.title}</title>
-      </>
-  )
-}
+export { Head } from 'components'

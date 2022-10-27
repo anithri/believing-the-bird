@@ -13,7 +13,7 @@ export const QuotePage = ({className, page, skipTitle}) => {
   return (
       <article className={cx(styles.quotePage, className)}>
         {skipTitle ? null : <h2>{title}</h2>}
-        {image ? <GatsbyImage image={image} alt={imageTitle} /> : null}
+        {image ? <GatsbyImage image={image} alt={imageTitle} width={240} /> : null}
         {pageQuote ? <Blockquote quote={pageQuote} /> : null}
       </article>
   )

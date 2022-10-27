@@ -21,6 +21,8 @@
 }
 
 .header {
+  margin-top: var(--spacing-small);
+
   grid-area: header;
   z-index: 2;
 }
@@ -37,6 +39,8 @@
 }
 
 .main {
+  margin-top: var(--spacing-medium);
+
   grid-area: main;
 }
 
