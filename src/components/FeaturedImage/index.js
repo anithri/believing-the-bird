@@ -11,6 +11,7 @@ export const FeaturedImage = ({image, className, ...props}) => {
           className={cx(className, styles.featuredImage)}
           image={image.gatsbyImageData}
           alt={image.title}
+          objectFit="contain"
       />
   )
 }

@@ -21,7 +21,6 @@ body,
 html {
   background: var(--body-texture), var(--body-background), var(--white-20);
   background-size: cover;
-
 }
 
 body {

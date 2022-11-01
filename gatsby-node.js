@@ -5,7 +5,6 @@ const ArtworkTemplate = paths.template('Artwork')
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
 
-
   return await graphql(`
     query GetArtCollectionArtworks {
       artworks: allContentfulArtwork(
@@ -36,10 +35,10 @@ exports.createPages = async ({graphql, actions}) => {
               }
             }
             art {
-              gatsbyImageData(layout: CONSTRAINED, width: 768)
+              gatsbyImageData(layout: CONSTRAINED, height: 490)
             }
             fullscreen: art {
-              gatsbyImageData(layout: CONSTRAINED)
+              gatsbyImageData(layout: FULL_WIDTH)
             }
           }
         }
@@ -55,25 +54,8 @@ exports.createPages = async ({graphql, actions}) => {
   })
   .then((result) => { // generate pages for "Art" && "Joe Horvath" collection
     result.artworks.forEach(({prev, next, artwork}) => {
-      if (next) next.path = paths.artwork(next)
-      if (prev) prev.path = paths.artwork(prev)
-      artwork.path = paths.artwork(artwork)
-
-      createPage({
-        path: artwork.path,
-        component: ArtworkTemplate,
-        context: {
-          prev, next, artwork
-        }
-      })
-    })
-
-    return result
-  })
-  .then((result) => { // generate pages for "Joe Horvath" collection
-    result.artworks.forEach(({prev, next, artwork}) => {
-      if (next) next.path = paths.artwork(next)
-      if (prev) prev.path = paths.artwork(prev)
+      if (next && next.collection === artwork.collection) next.path = paths.artwork(next)
+      if (prev && prev.collection === artwork.collection) prev.path = paths.artwork(prev)
       artwork.path = paths.artwork(artwork)
 
       createPage({
