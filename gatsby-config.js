@@ -8,7 +8,7 @@ module.exports = {
       // {title: 'Numerology', link: '/third'},
       {title: "Jeanne's Blog", link: '/fourth'},
       {title: "About Joe", link: '/about-joe'},
-      {title: "Joe's Art", link: '/fifth'},
+      {title: "Joe's Art", link: '/JoeHorvathArt'},
     ],
     description: "Celebrating the Artwork and Writings of Birdie",
     author: 'Jeanne Horvath & Joe Horvath',
