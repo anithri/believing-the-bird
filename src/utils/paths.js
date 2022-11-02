@@ -1,4 +1,3 @@
-const path = require('path')
 
 const templatePath = (template) => `./src/templates/${template}.js`
 // const byDatePath = ({ year, month, day, slug }) => `/blog/${year}/${month}/${day}/${slug}.html`
@@ -9,7 +8,7 @@ const artworkPath = (artwork) => {
 }
 
 const paths = {
-  template: template => path.resolve(templatePath(template)),
+  template: template => templatePath(template),
   artwork: artworkPath
 }
 

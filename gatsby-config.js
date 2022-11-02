@@ -3,7 +3,7 @@ module.exports = {
     title: `Believing The Bird`,
     siteUrl: `https://believingthebird.com`,
     navLinks: [
-      {title: "Jeanne's Art", link: '/first'},
+      {title: "Jeanne's Art", link: '/JeanneHorvathArt'},
       {title: 'About Jeanne', link: '/about'},
       // {title: 'Numerology', link: '/third'},
       {title: "Jeanne's Blog", link: '/fourth'},

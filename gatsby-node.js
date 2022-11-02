@@ -1,6 +1,7 @@
+const path = require('path')
 const {paths} = require('./src/utils/paths')
 
-const ArtworkTemplate = paths.template('Artwork')
+const ArtworkTemplate = path.resolve(paths.template('Artwork'))
 
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
