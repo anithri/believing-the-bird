@@ -11,7 +11,8 @@ export const ArtworkPage = ({prev, next, artwork}) => {
   const [isMax, setMax] = React.useState(false)
   const maximize = e => setMax(true)
   const minimize = e => setMax(false)
-  const {title, summary, art, body, fullscreen} = artwork
+  const {title, summary, art, body,fullscreen } = artwork
+  console.log('fullscreen', fullscreen)
   const html = body?.childMarkdownRemark?.html
 
   const MaxImage = (

@@ -7,11 +7,11 @@ const BlogPostTemplate = path.resolve(paths.template('BlogPost'))
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
 
-  return await graphql`
+  return await graphql(`
     query GetArtCollectionArtworksAndBlogPosts {
       artworks: allContentfulArtwork(
         sort: {fields: publishOn, order: DESC}
-        filter: {collection: {in: ["Art", "Joe Horvath", "Herbs"]}}
+        filter: {collection: {in: ["Art","Herbs"]}}
       ) {
         edges {
           prev: previous {
@@ -40,7 +40,51 @@ exports.createPages = async ({graphql, actions}) => {
               gatsbyImageData(layout: CONSTRAINED, height: 490)
             }
             fullscreen: art {
-              gatsbyImageData(layout: FULL_WIDTH)
+              gatsbyImageData(
+                layout: CONSTRAINED,
+                height: 1200,
+                placeholder: DOMINANT_COLOR
+              )
+            }
+          }
+        }
+      }
+      sortedArtworks: allContentfulArtwork(
+        sort: {fields: displayOrder, order: ASC}
+        filter: {collection: {in: ["Joe Horvath"]}}
+      ) {
+        edges {
+          prev: previous {
+            slug
+            collection
+            title
+          }
+          next {
+            slug
+            collection
+            title
+          }
+          artwork: node {
+            collection
+            id
+            publishOn
+            slug
+            title
+            summary
+            body {
+              childMarkdownRemark {
+                html
+              }
+            }
+            art {
+              gatsbyImageData(layout: CONSTRAINED, height: 490)
+            }
+            fullscreen: art {
+              gatsbyImageData(
+                layout: CONSTRAINED,
+                height: 1200,
+                placeholder: DOMINANT_COLOR
+              )
             }
           }
         }
@@ -83,41 +127,58 @@ exports.createPages = async ({graphql, actions}) => {
         }
       }
     }
-  `
-  .then(({data}) => {
-    if (data.errors) throw data.errors
+  `)
+      .then(({data}) => {
+        if (data.errors) throw data.errors
 
-    return ({
-      artworks: data?.artworks?.edges,
-      posts: data?.posts?.edges,
-    })
-  })
-  .then((result) => { // generate pages for "Art" && "Joe Horvath" collection
-    result.artworks.forEach(({prev, next, artwork}) => {
-      if (next && next.collection === artwork.collection) next.path = paths.artwork(next)
-      if (prev && prev.collection === artwork.collection) prev.path = paths.artwork(prev)
-      artwork.path = paths.artwork(artwork)
+        return ({
+          artworks: data?.artworks?.edges,
+          sortedArtworks: data?.sortedArtworks?.edges,
+          posts: data?.posts?.edges,
+        })
+      })
+      .then((result) => { // generate pages for "Art" && "Joe Horvath" collection
+        result.artworks.forEach(({prev, next, artwork}) => {
+          if (next && next.collection === artwork.collection) next.path = paths.artwork(next)
+          if (prev && prev.collection === artwork.collection) prev.path = paths.artwork(prev)
+          artwork.path = paths.artwork(artwork)
 
-      createPage({
-        path: artwork.path,
-        component: ArtworkTemplate,
-        context: {
-          prev, next, artwork
-        }
+          createPage({
+            path: artwork.path,
+            component: ArtworkTemplate,
+            context: {
+              prev, next, artwork
+            }
+          })
+        })
+        return result
       })
-    })
-    return result
-  })
-  .then((result) => {
-    result.posts.forEach(({prev, next, post}) => {
-      createPage({
-        path: paths.byDate(post),
-        component: BlogPostTemplate,
-        context: {
-          prev, next, post
-        },
+      .then((result) => { // generate pages for "Art" && "Joe Horvath" collection
+        result.sortedArtworks.forEach(({prev, next, artwork}) => {
+          if (next && next.collection === artwork.collection) next.path = paths.artwork(next)
+          if (prev && prev.collection === artwork.collection) prev.path = paths.artwork(prev)
+          artwork.path = paths.artwork(artwork)
+
+          createPage({
+            path: artwork.path,
+            component: ArtworkTemplate,
+            context: {
+              prev, next, artwork
+            }
+          })
+        })
+        return result
       })
-    })
-    return result
-  })
+      .then((result) => {
+        result.posts.forEach(({prev, next, post}) => {
+          createPage({
+            path: paths.byDate(post),
+            component: BlogPostTemplate,
+            context: {
+              prev, next, post
+            },
+          })
+        })
+        return result
+      })
 }

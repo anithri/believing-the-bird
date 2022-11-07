@@ -7,8 +7,8 @@ import {Layout} from '../Layout'
 export const BlogPostPage = ({prev, next, post}) => {
   const {title, images, body} = post
 
-  const image = images[0]?.gatsbyImageData
-  const imageTitle = images[0]?.title
+  const image = Array.isArray(images) ? images[0]?.gatsbyImageData : null
+  const imageTitle = image?.title
 
   const {html} = body.childMarkdownRemark
 
