@@ -1,0 +1,5 @@
+.artworkIndexPage {
+  & h2 {
+    text-align: center;
+  }
+}

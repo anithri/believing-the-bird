@@ -9,14 +9,14 @@ import { Header } from './Header'
 import { Nav } from './Nav'
 import { Footer } from './Footer'
 
-export const Layout = ({grid = 'normal',isMax, children}) => {
+export const Layout = ({grid = 'normal',isMax, className, children}) => {
   const {title, navLinks} = useSiteMetadata()
   return (
       <div className={cx(styles.grid, styles[grid])}>
         <Header title={title} className={styles.header} />
         <Decoration className={styles.decoration} />
         <Nav className={styles.nav} navLinks={navLinks} />
-        <main className={styles.main}>
+        <main className={cx(styles.main, className)}>
           {children}
         </main>
         <Footer className={styles.footer} />

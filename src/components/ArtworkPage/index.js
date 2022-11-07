@@ -12,7 +12,7 @@ export const ArtworkPage = ({prev, next, artwork}) => {
   const maximize = e => setMax(true)
   const minimize = e => setMax(false)
   const {title, summary, art, body, fullscreen} = artwork
-  const html = body?.childMarkdownRemark?.html || '<p>Body Text</p>'
+  const html = body?.childMarkdownRemark?.html
 
   const MaxImage = (
       <ImageAndFrame className={cx(styles.featuredImage, styles.max)}

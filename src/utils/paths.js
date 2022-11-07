@@ -1,6 +1,6 @@
 
 const templatePath = (template) => `./src/templates/${template}.js`
-const byDatePath = ({ year, month, day, slug }) => `/blog/${year}/${month}/${day}/${slug}.html`
+const blogPostPath = ({ year, month, day, slug }) => `/blog/${year}/${month}/${day}/${slug}.html`
 // const blogIndexPath = (idx) => `/blog/${idx}.html`
 const artworkPath = (artwork) => {
   const prefix = (artwork.collection || '').toLowerCase().replace(' ', '-')
@@ -9,7 +9,8 @@ const artworkPath = (artwork) => {
 
 const paths = {
   artwork: artworkPath,
-  byDate: byDatePath,
+  byDate: blogPostPath,
+  blogPost: blogPostPath,
   template: templatePath,
 }
 

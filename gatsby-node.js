@@ -7,11 +7,11 @@ const BlogPostTemplate = path.resolve(paths.template('BlogPost'))
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
 
-  return await graphql(`
+  return await graphql`
     query GetArtCollectionArtworksAndBlogPosts {
       artworks: allContentfulArtwork(
         sort: {fields: publishOn, order: DESC}
-        filter: {collection: {in: ["Art", "Joe Horvath"]}}
+        filter: {collection: {in: ["Art", "Joe Horvath", "Herbs"]}}
       ) {
         edges {
           prev: previous {
@@ -83,7 +83,7 @@ exports.createPages = async ({graphql, actions}) => {
         }
       }
     }
-  `)
+  `
   .then(({data}) => {
     if (data.errors) throw data.errors
 
