@@ -2,7 +2,7 @@
   height: 100vh;
   display: grid;
   grid-row-gap: var(--spacing-small);
-  grid-template-rows: 2rem 1.5rem calc(100vh - 5.5rem) 2rem;
+  grid-template-rows: 2rem 1.5rem 1fr 2rem;
   grid-template-columns: 1fr var(--page-width) 1fr;
 }
 
