@@ -3,13 +3,13 @@ module.exports = {
     title: `Believing The Bird`,
     siteUrl: `https://believingthebird.com`,
     navLinks: [
-      {title: "Jeanne's Art", link: '/JeanneHorvathArt'},
+      {title: 'Jeanne\'s Art', link: '/JeanneHorvathArt'},
       {title: 'About Jeanne', link: '/about'},
-      {title: "Jeanne's Blog", link: '/blog'},
-      {title: "About Joe", link: '/about-joe'},
-      {title: "Joe's Art", link: '/JoeHorvathArt'},
+      {title: 'Jeanne\'s Blog', link: '/blog'},
+      {title: 'About Joe', link: '/about-joe'},
+      {title: 'Joe\'s Art', link: '/JoeHorvathArt'},
     ],
-    description: "Celebrating the Artwork and Writings of Birdie",
+    description: 'Celebrating the Artwork and Writings of Birdie',
     author: 'Jeanne Horvath & Joe Horvath',
     designer: 'Designed by Scott M Parrish with open source software',
     established: 2017
@@ -23,11 +23,12 @@ module.exports = {
         host: process.env.CONTENTFUL_HOST
       }
     },
+    'gatsby-plugin-transition-link',
     'gatsby-transformer-remark',
     'gatsby-plugin-sharp',
     'gatsby-plugin-image',
     'gatsby-transformer-sharp',
-    "gatsby-plugin-root-import",
+    'gatsby-plugin-root-import',
     {
       resolve: 'gatsby-plugin-typography',
       options: {

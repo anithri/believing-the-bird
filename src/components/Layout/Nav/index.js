@@ -2,13 +2,14 @@ import * as React from 'react'
 import cx from 'classnames'
 import * as styles from './styles.module.css'
 import { Link } from 'gatsby'
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 export const Nav = ({className, navLinks}) => {
   const allLinks = []
   navLinks.forEach(({title, link}, idx) => {
         allLinks.push(
             <li key={link}>
-              <Link to={link}>{title}</Link>
+              <AniLink fade to={link}>{title}</AniLink>
             </li>
         )
         allLinks.push(
