@@ -7,127 +7,119 @@ const BlogPostTemplate = path.resolve(paths.template('BlogPost'))
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
 
-  return await graphql(`
-    query GetArtCollectionArtworksAndBlogPosts {
-      artworks: allContentfulArtwork(
-        sort: {fields: publishOn, order: DESC}
-        filter: {collection: {in: ["Art"]}}
-      ) {
-        edges {
-          prev: previous {
-            slug
-            collection
-            title
-          }
-          next {
-            slug
-            collection
-            title
-          }
-          artwork: node {
-            collection
-            id
-            publishOn
-            slug
-            title
-            summary
-            body {
-              childMarkdownRemark {
-                html
-              }
-            }
-            art {
-              gatsbyImageData(layout: CONSTRAINED, height: 490)
-            }
-            fullscreen: art {
-              gatsbyImageData(
-                layout: CONSTRAINED,
-                height: 1200,
-                placeholder: DOMINANT_COLOR
-              )
-            }
+  return await graphql(`query GetArtCollectionArtworksAndBlogPosts {
+  artworks: allContentfulArtwork(
+    sort: {publishOn: DESC}
+    filter: {collection: {in: ["Art"]}}
+  ) {
+    edges {
+      prev: previous {
+        slug
+        collection
+        title
+      }
+      next {
+        slug
+        collection
+        title
+      }
+      artwork: node {
+        collection
+        id
+        publishOn
+        slug
+        title
+        summary
+        body {
+          childMarkdownRemark {
+            html
           }
         }
-      }
-      sortedArtworks: allContentfulArtwork(
-        sort: {fields: displayOrder, order: ASC}
-        filter: {collection: {in: ["Joe Horvath"]}}
-      ) {
-        edges {
-          prev: previous {
-            slug
-            collection
-            title
-          }
-          next {
-            slug
-            collection
-            title
-          }
-          artwork: node {
-            collection
-            id
-            publishOn
-            slug
-            title
-            summary
-            body {
-              childMarkdownRemark {
-                html
-              }
-            }
-            art {
-              gatsbyImageData(layout: CONSTRAINED, height: 490)
-            }
-            fullscreen: art {
-              gatsbyImageData(
-                layout: CONSTRAINED,
-                height: 1200,
-                placeholder: DOMINANT_COLOR
-              )
-            }
-          }
+        art {
+          gatsbyImageData(layout: CONSTRAINED, height: 490)
         }
-      }
-      posts: allContentfulPost {
-        edges {
-          prev: previous {
-            id
-            title
-            slug
-            year: publishOn(formatString: "YYYY")
-            month: publishOn(formatString: "MM")
-            day: publishOn(formatString: "DD")
-          }
-          next {
-            id
-            title
-            slug
-            year: publishOn(formatString: "YYYY")
-            month: publishOn(formatString: "MM")
-            day: publishOn(formatString: "DD")
-          }
-          post: node {
-            id
-            slug
-            title
-            publishOn
-            body {
-              childMarkdownRemark {
-                html
-              }
-            }
-            images {
-              gatsbyImageData(layout: FIXED, width: 800)
-            }
-            year: publishOn(formatString: "YYYY")
-            month: publishOn(formatString: "MM")
-            day: publishOn(formatString: "DD")
-          }
+        fullscreen: art {
+          gatsbyImageData(layout: CONSTRAINED, height: 1200, placeholder: DOMINANT_COLOR)
         }
       }
     }
-  `)
+  }
+  sortedArtworks: allContentfulArtwork(
+    sort: {displayOrder: ASC}
+    filter: {collection: {in: ["Joe Horvath"]}}
+  ) {
+    edges {
+      prev: previous {
+        slug
+        collection
+        title
+      }
+      next {
+        slug
+        collection
+        title
+      }
+      artwork: node {
+        collection
+        id
+        publishOn
+        slug
+        title
+        summary
+        body {
+          childMarkdownRemark {
+            html
+          }
+        }
+        art {
+          gatsbyImageData(layout: CONSTRAINED, height: 490)
+        }
+        fullscreen: art {
+          gatsbyImageData(layout: CONSTRAINED, height: 1200, placeholder: DOMINANT_COLOR)
+        }
+      }
+    }
+  }
+  posts: allContentfulPost(
+    sort: {publishOn: DESC}
+  ) {
+    edges {
+      prev: previous {
+        id
+        title
+        slug
+        year: publishOn(formatString: "YYYY")
+        month: publishOn(formatString: "MM")
+        day: publishOn(formatString: "DD")
+      }
+      next {
+        id
+        title
+        slug
+        year: publishOn(formatString: "YYYY")
+        month: publishOn(formatString: "MM")
+        day: publishOn(formatString: "DD")
+      }
+      post: node {
+        id
+        slug
+        title
+        publishOn
+        body {
+          childMarkdownRemark {
+            html
+          }
+        }
+        images {
+          gatsbyImageData(layout: FIXED, width: 800)
+        }
+        year: publishOn(formatString: "YYYY")
+        month: publishOn(formatString: "MM")
+        day: publishOn(formatString: "DD")
+      }
+    }
+  }
+}`)
       .then(({data}) => {
         if (data.errors) throw data.errors
 
@@ -180,5 +172,5 @@ exports.createPages = async ({graphql, actions}) => {
           })
         })
         return result
-      })
+      });
 }
