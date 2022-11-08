@@ -11,7 +11,7 @@ exports.createPages = async ({graphql, actions}) => {
     query GetArtCollectionArtworksAndBlogPosts {
       artworks: allContentfulArtwork(
         sort: {fields: publishOn, order: DESC}
-        filter: {collection: {in: ["Art","Herbs"]}}
+        filter: {collection: {in: ["Art"]}}
       ) {
         edges {
           prev: previous {

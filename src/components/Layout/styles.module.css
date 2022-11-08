@@ -40,6 +40,8 @@
 
 .main {
   grid-area: main;
+  margin-top: var(--spacing-small);
+
 }
 
 .footer {
