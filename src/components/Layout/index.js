@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import {useSiteMetadata} from 'hooks'
+import { useSiteMetadata } from 'hooks'
 import * as styles from './styles.module.css'
 import 'styles/site.css'
 import cx from 'classnames'
@@ -9,7 +9,7 @@ import { Header } from './Header'
 import { Nav } from './Nav'
 import { Footer } from './Footer'
 
-export const Layout = ({grid = 'normal',isMax, className, children}) => {
+export const Layout = ({grid = 'normal', className, children}) => {
   const {title, navLinks} = useSiteMetadata()
   return (
       <div className={cx(styles.grid, styles[grid])}>
@@ -23,17 +23,3 @@ export const Layout = ({grid = 'normal',isMax, className, children}) => {
       </div>
   )
 }
-
-const staticQuery = graphql`
-  query LayoutQuery {
-    site {
-      siteMetadata {
-        title
-        navLinks {
-          title
-          link
-        }
-      }
-    }
-  }
-`
