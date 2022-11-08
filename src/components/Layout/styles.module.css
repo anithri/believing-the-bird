@@ -2,7 +2,7 @@
   height: 100vh;
   display: grid;
   grid-row-gap: var(--spacing-small);
-  grid-template-rows: 2rem 1.5rem 1fr 2rem;
+  grid-template-rows: 2rem 1.5rem 1fr auto;
   grid-template-columns: 1fr var(--page-width) 1fr;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .header {
-  margin-top: var(--spacing-extra-small);
+  padding-top: var(--spacing-extra-small);
 
   grid-area: header;
   z-index: 2;
