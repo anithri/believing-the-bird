@@ -3,11 +3,11 @@ module.exports = {
     title: `Believing The Bird`,
     siteUrl: `https://believingthebird.com`,
     navLinks: [
-      {title: 'Jeanne\'s Art', link: '/JeanneHorvathArt'},
-      {title: 'About Jeanne', link: '/about'},
-      {title: 'Jeanne\'s Blog', link: '/blog'},
-      {title: 'About Joe', link: '/about-joe'},
-      {title: 'Joe\'s Art', link: '/JoeHorvathArt'},
+      { title: 'Jeanne\'s Art', link: '/JeanneHorvathArt' },
+      { title: 'About Jeanne', link: '/about' },
+      { title: 'Jeanne\'s Blog', link: '/blog' },
+      { title: 'About Joe', link: '/about-joe' },
+      { title: 'Joe\'s Art', link: '/JoeHorvathArt' },
     ],
     description: 'Celebrating the Artwork and Writings of Birdie',
     author: 'Jeanne Horvath & Joe Horvath',
@@ -41,19 +41,23 @@ module.exports = {
       options: {
         'icon': 'src/images/icon.png'
       }
-    }, 'gatsby-plugin-mdx', {
+    },
+    'gatsby-plugin-mdx', {
       resolve: 'gatsby-source-filesystem',
       options: {
         'name': 'images',
         'path': './src/images/'
       },
       __key: 'images'
-    }, {
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         'name': 'pages',
         'path': './src/pages/'
       },
       __key: 'pages'
-    }]
+    },
+    'gatsby-plugin-netlify'
+  ]
 }
