@@ -19,8 +19,10 @@ export const Nav = ({className, navLinks}) => {
   )
   allLinks.pop() // get rid of last spacer
   return (
-      <nav className={cx(className, styles.nav)}>
-        <ul>{allLinks}</ul>
-      </nav>
+      <>
+        <nav className={cx(className, styles.nav)}>
+          <ul>{allLinks}</ul>
+        </nav>
+      </>
   )
 }

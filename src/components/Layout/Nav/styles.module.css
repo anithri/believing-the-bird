@@ -1,3 +1,7 @@
+@custom-media --breakpoint-small screen and (max-width: 30rem);
+@custom-media --breakpoint-not-small screen and (min-width: 30rem);
+
+
 .nav {
   & > ul {
     width: 100%;
@@ -46,9 +50,21 @@
       }
     }
   }
-
 }
 
 .spacer {
 
+}
+
+@media (--breakpoint-small) {
+  .nav {
+    & > ul {
+      flex-direction: column;
+
+      & > li {
+
+      }
+
+    }
+  }
 }

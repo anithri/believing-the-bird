@@ -16,7 +16,7 @@ export const AboutPage = ({className, page, skipTitle}) => {
         {skipTitle ? null : <h2>{title}</h2>}
         <section>
           {image ? <GatsbyImage image={image} alt={imageTitle} className="floatLeft"  /> : null}
-          <div dangerouslySetInnerHTML={{__html: html}} />
+          <div className={styles.markdownSection} dangerouslySetInnerHTML={{__html: html}} />
         </section>
       </article>
   )

@@ -1,18 +1,34 @@
+@custom-media --breakpoint-small screen and (max-width: 30rem);
+@custom-media --breakpoint-not-small screen and (min-width: 30rem);
+
+@media (--breakpoint-small) {
+  .blockquote {
+    padding-left: var(--spacing-extra-small);
+    padding-right: var(--spacing-extra-small);
+  }
+
+  .quote {
+  }
+}
+
+@media (--breakpoint-not-small) {
+  .quote {
+    line-height: var(--line-height-title);
+  }
+
+}
 .blockquote {
   padding-top: var(--spacing-medium, 1rem);
   padding-bottom: var(--spacing-medium, 1rem);
-
 }
 
 .quote {
   text-align: center;
   font-size: var(--font-size-3, 1.5rem);
-  line-height: var(--line-height-copy, 1.5);
 }
 
 .caption {
   text-align: right;
   font-style: italic;
   font-size: var(--font-size-5, 1rem);
-
 }

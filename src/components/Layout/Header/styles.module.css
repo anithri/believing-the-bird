@@ -1,3 +1,6 @@
+@custom-media --breakpoint-small screen and (max-width: 30rem);
+@custom-media --breakpoint-not-small screen and (min-width: 30rem);
+
 .header {
 
   & > a {
@@ -12,5 +15,13 @@
   & h1 {
     text-align: center;
     font-size: var(--site-title-size);
+  }
+}
+
+@media (--breakpoint-small) {
+  .header {
+    & h1 {
+      font-size: var(--site-title-mobile);
+    }
   }
 }

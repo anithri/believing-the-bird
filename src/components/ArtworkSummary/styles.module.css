@@ -1,3 +1,6 @@
+@custom-media --breakpoint-small screen and (max-width: 30rem);
+@custom-media --breakpoint-not-small screen and (min-width: 30rem);
+
 .summary {
   display: grid;
   grid-template-columns: var(--artwork-summary-width) 1fr var(--artwork-summary-width);
@@ -29,6 +32,11 @@
   & > img {
     object-fit: none !important;
     width: var(--artwork-summary-width);
+  }
+}
+@media (--breakpoint-small) {
+  .summary {
+    grid-template-columns: unset;
   }
 }
 .img {

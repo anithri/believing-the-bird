@@ -8,6 +8,7 @@
     margin: var(--spacing-none);
     & > li {
       font-size: var(--font-size-7, .875rem);
+      text-align: center;
 
       flex: 0 1 auto;
     }

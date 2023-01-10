@@ -1,7 +1,15 @@
+@custom-media --breakpoint-small screen and (max-width: 30rem);
+
 .aboutPage {
 
   & > section {
     padding-top: var(--spacing-medium);
+  }
+}
 
+@media (--breakpoint-small) {
+  .markdownSection {
+    padding-left: var(--spacing-extra-small);
+    padding-right: var(--spacing-extra-small);
   }
 }

@@ -28,6 +28,18 @@ body {
   background: var(--color-body-bg);
 }
 
+@media (--breakpoint-small) {
+  body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+
+  }
+}
+
 .floatLeft {
   float: left;
   margin-right: var(--spacing-small);

@@ -10,16 +10,18 @@ p:last-child {
   margin: var(--spacing-none, 0);
 }
 
-#___gatsby {
-  & a, & a:visited, & a:hover, & a:active {
-    color: inherit;
-    outline: none;
-    text-decoration: none;
-    border: none;
-  }
-  & a.currentPage {
-    color: var(--color-link-current-page);
-  }
+#___gatsby a,
+#___gatsby a:visited,
+#___gatsby a:hover,
+#___gatsby a:active {
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+  border: none;
+}
+
+#___gatsby a.currentPage {
+  color: var(--color-link-current-page);
 }
 
 blockquote {
