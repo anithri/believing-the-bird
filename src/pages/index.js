@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { Layout, QuotePage } from 'components'
+import { Layout, HomePage } from 'components'
 import { graphql } from 'gatsby'
 
 const IndexPage = ({data}) => {
   return (
       <Layout>
-        <QuotePage page={data.page} skipTitle={true} />
+        <HomePage page={data.page} skipTitle={true} />
       </Layout>
   )
 }
@@ -15,9 +15,10 @@ export const query = graphql`
     page: contentfulPage(slug: { eq: "home" }) {
       id
       title
-      pageQuote {
-        lines
-        caption
+      body {
+        childMarkdownRemark {
+          html
+        }
       }
       images {
         title

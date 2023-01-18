@@ -2,13 +2,6 @@ module.exports = {
   siteMetadata: {
     title: `Believing The Bird`,
     siteUrl: `https://believingthebird.com`,
-    navLinks: [
-      { title: 'Jeanne\'s Art', link: '/JeanneHorvathArt' },
-      { title: 'About Jeanne', link: '/about' },
-      { title: 'Jeanne\'s Blog', link: '/blog' },
-      { title: 'About Joe', link: '/about-joe' },
-      { title: 'Joe\'s Art', link: '/JoeHorvathArt' },
-    ],
     description: 'Celebrating the Artwork and Writings of Birdie',
     author: 'Jeanne Horvath & Joe Horvath',
     designer: 'Designed by Scott M Parrish with open source software',

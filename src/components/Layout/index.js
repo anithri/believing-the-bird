@@ -10,11 +10,19 @@ import { Nav } from './Nav'
 import { Footer } from './Footer'
 import { useState } from 'react'
 
+const navLinks = [
+  { title: 'Jeanne\'s Art', link: '/JeanneHorvathArt' },
+  { title: 'About Jeanne', link: '/about' },
+  { title: 'Jeanne\'s Blog', link: '/blog' },
+  { title: 'About Joe', link: '/about-joe' },
+  { title: 'Joe\'s Art', link: '/JoeHorvathArt' },
+]
+
 export const NavBtn = ({className, toggle}) => (
     <span className={cx(className, styles.navBtn)} onClick={toggle}>☰</span>
 )
 export const Layout = ({grid = 'normal', className, children}) => {
-  const {title, navLinks} = useSiteMetadata()
+  const {title} = useSiteMetadata()
   const [navIsOpen, setNavOpen] = useState(false)
   const toggleNav = () => setNavOpen(orig => !orig)
 

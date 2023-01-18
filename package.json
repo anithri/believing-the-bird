@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "dev": "gatsby develop --host 0.0.0.0 --open",
+    "fresh": "yarn clean;yarn dev",
     "start": "gatsby develop --host 0.0.0.0 --open",
     "build": "gatsby build",
     "serve": "gatsby serve",
@@ -35,7 +36,6 @@
     "gsap": "^3.11.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-swipeable": "^7.0.0",
     "react-typography": "^0.16.23",
     "typography": "^0.16.21",
     "typography-breakpoint-constants": "^0.16.19"
